@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./Chat.css";
 import { MyContext } from "./store/MyContext";
 import ReactMarkdown from "react-markdown";
@@ -14,6 +14,7 @@ function Chat() {
   const [latestReply, setLatestReply] = useState("");
   const {theme} = useContext(ThemeContext);
   const { newChat, prevChats, reply, isPrevChatsLoading } = useContext(MyContext);
+  const chatsRef = useRef(null);
 
   useEffect(() => {
 
@@ -47,10 +48,24 @@ function Chat() {
     //every time the reply changes or prevChats changes the effect re-runs
   }, [prevChats, reply]);
 
+  // Keep the transcript pinned to the newest messages when the user
+  // hasn't scrolled away from the bottom.
+  useEffect(() => {
+    const el = chatsRef.current;
+    if (!el) return;
+
+    const distanceFromBottom = el.scrollHeight - el.scrollTop - el.clientHeight;
+    const isNearBottom = distanceFromBottom < 200;
+
+    if (isNearBottom && latestReply !== null) {
+      el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+    }
+  }, [latestReply, isPrevChatsLoading]);
+
   return (
     <>
       {newChat && <h1>Where Should We Begin</h1>}
-      <div className="chats">
+      <div className="chats" ref={chatsRef}>
         <ClipLoader loading={isPrevChatsLoading} color={theme === "dark" ? "#fff": "#000"} />
         {/* remove the last reply from the chat so we can print it with typing effect */}
         {prevChats?.slice(0, -1).map((chat, idx) => {
@@ -76,7 +91,7 @@ function Chat() {
         {prevChats?.length > 0 &&
           (latestReply !== null ? (
             // if there is latest reply then print it with effect
-            <div className="gptDiv" key={"typing"}>
+            <div className="gptDiv typingReply" key={"typing"}>
               <ReactMarkdown rehypePlugins={[rehypeHighlight]}>
                 {latestReply}
               </ReactMarkdown>

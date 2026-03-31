@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import "./Sidebar.css";
-import logoImage from "./assets/blacklogo.png";
+import logoImage from "../src/assets/logo.ico";
 import { MyContext } from "./store/MyContext";
 import { v1 as uuidv1 } from "uuid";
 import toast from "react-hot-toast";
@@ -128,7 +128,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
       {/* new chat button */}
       <button onClick={startNewChat}>
-        <img src={logoImage} alt="chatForge logo" className="logo" />
+        <img src={logoImage} alt="SpeakMind logo" className="logo" />
         <span>
           <i className="fa-solid fa-pen-to-square"></i>
         </span>
@@ -162,7 +162,7 @@ export default function Sidebar({ isOpen, onClose }) {
       {/* sign */}
 
       <div className="sign">
-        <p>By Sarthak &hearts; </p>
+        <p>By Rajendra Margale &hearts; </p>
       </div>
     </section>
   );

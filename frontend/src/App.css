@@ -9,13 +9,15 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--bg-primary);
+    background: var(--bg-gradient);
+    background-color: var(--bg-primary); /* fallback */
     overflow: hidden;
     height: 100%;
 }
 
 .app {
-    background-color: var(--bg-primary);
+    background: var(--bg-gradient);
+    background-color: var(--bg-primary); /* fallback */
     display: flex;
 }
 
@@ -30,6 +32,10 @@ body.dark {
   --border-color: rgba(255, 255, 255, 0.5);
   --user-message-bg: #323232;
   --bg-input: rgba(255, 255, 255, 0.05);
+  --bg-gradient:
+    radial-gradient(900px circle at 12% 0%, rgba(124, 58, 237, 0.25), transparent 60%),
+    radial-gradient(700px circle at 85% 20%, rgba(34, 197, 94, 0.18), transparent 55%),
+    linear-gradient(180deg, #0b1020 0%, var(--bg-primary) 50%, var(--bg-secondary) 100%);
 --bg-hover: rgba(180, 180, 180, 0.1);
 --bg-hover-subtle: rgba(180, 180, 180, 0.05);
 --logo-bg: #fff;
@@ -49,6 +55,10 @@ body.light {
   --bg-input: rgba(0, 0, 0, 0.05);
   --bg-hover: rgba(0, 0, 0, 0.08);
   --bg-hover-subtle: rgba(0, 0, 0, 0.05);
+  --bg-gradient:
+    radial-gradient(900px circle at 12% 0%, rgba(124, 58, 237, 0.20), transparent 60%),
+    radial-gradient(700px circle at 85% 20%, rgba(34, 197, 94, 0.12), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, var(--bg-secondary) 100%);
   --logo-bg: #212121;
   --delete-hover: #dc2626;
   --box-shadow-dark: rgba(0, 0, 0, 0.15) 0px 5px 15px;

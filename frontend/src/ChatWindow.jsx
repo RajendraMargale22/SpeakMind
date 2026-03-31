@@ -33,7 +33,7 @@ function ChatWindow({onToggleSidebar}) {
 
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  // to get api response when user enters prompt
+  // Send the current prompt to the backend and update the UI with the assistant reply.
   async function getReply() {
     if (prompt.trim().length <= 0) {
       toast.error("Please Enter Prompt");
@@ -79,7 +79,7 @@ function ChatWindow({onToggleSidebar}) {
     }
   }
 
-  // append new chats to previous chats
+  // When we receive a reply, append the user prompt + assistant response to the in-memory transcript.
   useEffect(() => {
     // sets previous chats first when the component loads
     // and then sets the chats when the reply changes
@@ -159,9 +159,12 @@ function ChatWindow({onToggleSidebar}) {
         </button>
 
 
-        <span className="navbar-brand" >
-          ChatForge <i className="fa-solid fa-chevron-down"></i>
-        </span>
+        <div className="brand-block">
+          <span className="navbar-brand">
+            SpeakMind <i className="fa-solid fa-chevron-down"></i>
+          </span>
+          <div className="brand-tagline">A mind that listens and speaks</div>
+        </div>
         </div>
 
         
@@ -237,7 +240,7 @@ function ChatWindow({onToggleSidebar}) {
           </div>
         </div>
         <p className="info">
-          ChatForge can make mistakes. Check important info. See Cookie
+          SpeakMind can make mistakes. Check important info. See Cookie
           Preferences.
         </p>
       </div>

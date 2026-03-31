@@ -31,6 +31,24 @@
     font-weight: 300;
 }
 
+.brand-block{
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-tagline{
+    margin-top: 0.15rem;
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+    text-align: left;
+    max-width: 280px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
 .navbar span {
     margin: 1rem 2rem;
 }

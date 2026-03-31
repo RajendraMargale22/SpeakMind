@@ -27,7 +27,8 @@ export function useAuthenticatedFetch() {
       credentials: "include",
     });
 
-    // Check for 401 Unauthorized
+    // If the backend says the access token is expired (401),
+    // try to silently refresh using the refresh-token cookie and retry the original request.
     if (response.status === 401) {
       logger.debug("Access token expired, attempting refresh...");
       const refreshResponse = await fetch(`${API_BASE_URL ? API_BASE_URL : "http://localhost:8080"}/gpt/refresh`, {

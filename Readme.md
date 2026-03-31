@@ -1,17 +1,17 @@
-# ChatForge
+# SpeakMind
 
-ChatForge is a full-stack AI chat application built using the **MERN stack** that allows users to interact with an AI assistant in real time. The system manages conversations using thread-based storage, maintains conversational context using sliding window techniques, and implements secure authentication using JWT access and refresh tokens.
+SpeakMind is a full-stack AI chat application built using the **MERN stack** that allows users to interact with an AI assistant in real time. The system manages conversations using thread-based storage, maintains conversational context using sliding window techniques, and implements secure authentication using JWT access and refresh tokens.
 
-This project demonstrates **secure backend architecture, scalable chat storage, efficient AI context management, and production-ready deployment practices.**
+SpeakMind helps you think clearly with thread-based AI conversations. This project demonstrates **secure backend architecture, scalable chat storage, efficient AI context management, and production-ready deployment practices.**
 
 ---
 
 ## Live Demo
 
-Frontend: https://chat-forge-beta.vercel.app/ 
-Backend API: https://chatforge-7iov.onrender.com
+Frontend: 
+Backend API: 
 
-Repository: https://github.com/Sarthak14581/ChatForge
+Repository: 
 
 ---
 
@@ -104,7 +104,7 @@ This prevents exposure of API keys and enables server-side control of AI request
 
 ## Authentication Architecture
 
-ChatForge implements a **secure authentication system using access and refresh tokens.**
+SpeakMind implements a **secure authentication system using access and refresh tokens.**
 
 ### Access Token
 
@@ -196,7 +196,7 @@ Thread data is stored separately to avoid redundancy and improve scalability.
 ## Conversation Context Handling
 
 OpenAI APIs are **stateless**, meaning they do not remember previous messages.  
-ChatForge manages context manually using two techniques.
+SpeakMind manages context manually using two techniques.
 
 ### Sliding Window Context
 
@@ -247,7 +247,7 @@ This produces clean titles for the sidebar chat list.
 
 ### Clone the Repository
 
-git clone https://github.com/YOUR_GITHUB_USERNAME/ChatForge.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/SpeakMind.git
 
 
 ---
@@ -269,11 +269,15 @@ npm run dev
 ---
 
 ## Environment Variables
-Create a `.env` file in the backend directory.
+Create a `.env` file in the backend directory (see `backend/.env.example` for placeholders).
 
 OPENAI_API_KEY=your_openai_api_key
 JWT_SECRET=your_jwt_secret
-MONGO_URI=your_mongodb_connection_string
+MONGODB_URI=your_mongodb_connection_string
+FRONTEND_URL=http://localhost:5173
+
+Also create a `.env` file in the frontend directory (see `frontend/.env.example` for placeholders).
+VITE_API_URL=http://localhost:8080
 
 
 ---
@@ -327,13 +331,11 @@ Planned improvements include:
 
 ## Author
 
-**Sarthak**
+**Rajendra Margale**
 
-Engineering Student  
-MERN Stack Developer  
-AI Enthusiast
-
-LinkedIn: https://www.linkedin.com/in/sarthakzunjurke/
+Contact: [GitHub](https://github.com/RajendraMargale22)  
+        [LinkedIn](https://www.linkedin.com/in/rajendra-margale-803484343/)
+Email: rajendramargale2211@gmail.com
 
 ---
 
