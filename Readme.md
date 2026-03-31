@@ -8,10 +8,10 @@ SpeakMind helps you think clearly with thread-based AI conversations. This proje
 
 ## Live Demo
 
-Frontend: 
-Backend API: 
+Frontend: https://speak-mind-pi.vercel.app/
+Backend API: https://speakmind-backend.onrender.com
 
-Repository: 
+Repository: https://github.com/RajendraMargale22/SpeakMind
 
 ---
 
@@ -247,7 +247,7 @@ This produces clean titles for the sidebar chat list.
 
 ### Clone the Repository
 
-git clone https://github.com/YOUR_GITHUB_USERNAME/SpeakMind.git
+git clone https://github.com/RajendraMargale22/SpeakMind
 
 
 ---

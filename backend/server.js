@@ -7,9 +7,12 @@ import authRoutes from "./routes/authentication.js"
 import cookieParser from "cookie-parser";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080; // 
+const FRONTEND_URL =
+  process.env.NODE_ENV === "production"
+    ? process.env.FRONTEND_URL
+    : "http://localhost:5173";
 
-const FRONTEND_URL = process.env.NODE_ENV === "production" ? process.env.FRONTEND_URL : "http://localhost:5173";
 
  
 // these are usefull when interacting with the frontend
