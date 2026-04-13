@@ -8,10 +8,11 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 const PORT = process.env.PORT || 8080; // 
-const FRONTEND_URL =
-  process.env.NODE_ENV === "production"
-    ? process.env.FRONTEND_URL
-    : "http://localhost:5173";
+const FRONTEND_URL = process.env.FRONTEND_URL;
+// const FRONTEND_URL =
+//   process.env.NODE_ENV === "production"
+//     ? process.env.FRONTEND_URL
+//     : "http://localhost:5173";
 
 
  
@@ -19,9 +20,9 @@ const FRONTEND_URL =
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: [FRONTEND_URL, "*"], // your frontend
-    credentials: true,               // 🔑 REQUIRED for cookie to store in the browser
-  }));
+  origin: FRONTEND_URL,
+  credentials: true
+}));
 
 
 app.use("/api", chatRoutes);
