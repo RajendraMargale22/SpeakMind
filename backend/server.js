@@ -28,6 +28,11 @@ app.use(cors({
 app.use("/api", chatRoutes);
 app.use("/gpt", authRoutes);
 
+// Uptime Robot
+app.get("/health", (req, res) => {
+    res.status(200).json({ status: "ok" });
+});
+
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
   connectDB();
